@@ -1,0 +1,216 @@
+/* .home_main_car .coool img::after{
+    content: "";
+    width: 100;
+    height: 100vh;
+    background-image: url('images/preview.png')!important;
+    background-size: 100% 100%!important;
+    background-position: center!important;
+    z-index: 100000000!important;
+} */
+
+.desk-home-owl2-car .owl-nav button:hover{
+    color: #000!important;
+    background: transparent!important;
+    }
+    .desk-home-owl2-car .owl-nav button i{
+        font-size: 3rem;
+        }
+    .desk-home-owl2-car .owl-nav button.owl-prev{
+        color: #FFF!important;
+        position: absolute;
+        top: 45%;
+        left: 3%;
+    }
+    .desk-home-owl2-car .owl-nav button.owl-next{
+        color: #FFF!important;
+        position: absolute;
+        top: 45%;
+        right: 3%;
+    }
+
+    .desk-home-owl2-car .owl-dots{
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .desk-home-owl2-car .owl-dots span{
+        border: 2px solid white;
+        background: transparent!important;
+    }
+
+    .desk-home-owl2-car .owl-dots .owl-dot.active span{
+        border: 2px solid white;
+        background: white!important;
+    }
+    .desk-home-owl2-car .owl-dots{
+        zoom: 1.3;
+    }
+
+    .header_mapfix_img{
+        width: 33%!important;height: 50%!important; position: fixed;z-index: 99; top: 75%;left: 50%;transform: translate(-50%,-75%);
+    }
+    .header_mapfix_logo{
+        position: fixed; top: 1%;left: 1%;z-index: 99;width: 13rem;    
+    }
+    .header_mapfix_head{
+        position: fixed; top: 5%;left: 50%;transform: translateX(-50%);z-index: 99;font-weight: 500;  color: #FFF;width: 100%;text-align: center;    
+    }
+    .header_mapfix_subhead{
+        position: fixed; top: 15%;left: 50%;transform: translateX(-50%);z-index: 99;font-weight: 500; color: #FFF;width: 100%;text-align: center;    
+    }
+    .link_one{
+        position: fixed; bottom: 15%;left: 50%;transform: translateX(-50%);z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;
+    }
+    .link_two{
+        position: fixed; top: 30%;left: 50%;transform: translateX(-50%);z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;
+    }
+    .link_three{
+        position: fixed; bottom: 25%; left: 10%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;
+    }
+    .link_four{
+        position: fixed; bottom: 35%; left: 10%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_five{
+        position: fixed; bottom: 45%; left: 10%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_six{
+        position: fixed; bottom: 55%; left: 10%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_seven{
+        position: fixed; bottom: 25%; left: 70%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_eight{
+        position: fixed; bottom: 35%; left: 70%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_nine{
+        position: fixed; bottom: 45%; left: 70%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .link_ten{
+        position: fixed; bottom: 55%; left: 70%;z-index: 99;font-weight: 500; color: #FFF;font-size: 1.1rem;        
+    }
+    .header a:hover{
+        color: white;
+        text-decoration: none;
+
+    }
+    
+    /* .header:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        opacity: 0.7;
+        background:#16c9f6;
+    }
+
+    .crousel_child:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        opacity: 0.7;
+        background:#16c9f6;
+    } */
+    .header_mapfix_head {
+        animation: linear;
+        animation-name: run;
+        animation-duration: 3s;
+      }
+
+      .header_mapfix_subhead{
+        animation: linear;
+        animation-name: run2;
+        animation-duration: 3s;  
+      }
+      .wow_left{
+        animation: linear;
+        animation-name: run3;
+        animation-duration: 3s;   
+      }
+      .wow_right{
+        animation: linear;
+        animation-name: run4;
+        animation-duration: 3s;   
+      }
+      .wow_up{
+        animation: linear;
+        animation-name: run5;
+        animation-duration: 3s; 
+      }
+      .wow_down{
+        animation: linear;
+        animation-name: run6;
+        animation-duration: 3s; 
+      }
+
+      @keyframes run {
+        0% {
+          transform: translateX(-135%);
+        }
+        50% {
+            transform: translateX(-50%);   
+        }
+      }
+
+      @keyframes run2 {
+        0% {
+          transform: translateX(20%);
+        }
+        50% {
+            transform: translateX(-50%);   
+        }
+      }
+
+      @keyframes run3 {
+        0% {
+          left: -16%;
+        }
+        50% {
+            left: 10%;   
+        }
+      }
+
+      @keyframes run4 {
+        0% {
+          left: 50%;
+        }
+        50% {
+            left: 70%;   
+        }
+      }
+
+      @keyframes run5 {
+        0% {
+          top: -2%;
+        }
+        50% {
+            top: 30%;   
+        }
+      }
+
+      @keyframes run6 {
+        0% {
+          bottom: -2%;
+        }
+        50% {
+            bottom: 15%;   
+        }
+      }
+
+      .item .coool::after{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5)!important;
+      }
