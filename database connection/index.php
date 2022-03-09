@@ -1,3 +1,15 @@
+
+
+ <?php
+ if(isset($_GET['error'])){
+    $err = $_GET['error'];
+    echo $err;
+    
+ }
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +41,10 @@
             top: 200px;
             left: 700px;
         }
+
+
+        
+
     </style>
 
     <title>Home</title>
@@ -36,36 +52,39 @@
 
 <body>
 
-
-    
-
-
-
-
-
-
-    <form name="myform" method="POST" action="form.php" autocomplete="off" enctype="multipart/form-data" >
+    <form name="myform" method="POST" action="form.php" autocomplete="off" enctype="multipart/form-data">
 
         <div class="form">
             <table>
                 <tr>
                     <td>Name:</td>
-                    <td> <input type="text" name="fname"> </td>
+                    <td> <input type="text" name="fname" pattern="[a-z]{1,15}"
+                            title="Name should only contain lowercase letters. e.g. john" minlength="3" required> </td>
                 </tr>
                 <tr>
-                    <td>user_id:</td>
-                    <td> <input type="text" name="userid"> </td>
+                    <td>username:</td>
+                    <td> <input type="text" name="userid" maxlength="20" required>   </td>
                 </tr>
                 <tr>
                     <td>Phone number:</td>
-                    <td> <input type="text" name="phone"> </td>
+
+                    <td> <input type="text" name="phone"
+                            title="Phone number should start with 7-9 and remaing 9 digit with 0-9"
+                            pattern='[7-9]{1}[0-9]{9}' maxlength="10" required>
+                    </td>
                 </tr>
-                
 
                 <tr>
                     <td>Upload Resume</td>
-                    <td><input type="file" name="file"></td>
+                    <td><input type="file" name="file" required></td>
                 </tr>
+
+                <tr>
+                    <td>Upload Profile picture</td>
+                    <td><input type="file" name="ProfilePic" required></td>
+                </tr>
+
+
                 <tr>
                     <td> <input class="btn btn-info" type="submit" name="submit" value="submit"> </td>
                 </tr>
@@ -73,6 +92,9 @@
 
         </div>
     </form>
+    
+
+  
 
     <a href="showdata.php">Show my data</a>
 
