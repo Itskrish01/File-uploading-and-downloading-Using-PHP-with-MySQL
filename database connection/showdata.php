@@ -1,84 +1,134 @@
-<?php
-include 'db.php';
+<?php 
 
+include "db.php";
 
+$sql = "SELECT * FROM user_table";
 
+$result = $connection->query($sql);
 
-$query = "SELECT * FROM user_table";
-echo '<table border="0" cellspacing="2" cellpadding="2"> 
-<tr> 
-    <td><strong> Name</strong> </td> 
-    <td> <strong> userid</strong> </td> 
-    <td> <strong> phone Number</strong> </td> 
-    <td> Delete your data </td>
-    <td> Edit Your data </td>
-    <td> Download files </td>
-</tr>';
-
-if($rs = $con->query($query)){
-while($row = $rs->fetch_assoc()){
-    $name = $row["first_name"];
-    $user_id = $row["userid"];
-    $Pnumber = $row["phone_number"];
-    $resume = $row["file"];
-
-
-    echo '<tr>
-    <td>'.$name.'</td>
-    <td>'.$user_id.'</td>
-    <td>'.$Pnumber.'</td>
-    
-    <td> <a href="delete.php?id='.$row["id"].'">Delete</a> </td>
-    <td> <a href="edit.php?id='.$row["id"].'">Edit</a> </td>
-    <td><a href="media/'.$row['file'].'" download>Download</a></td>
-            </tr>';
-}
-
-
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>database</title>
+
     <style>
-        table {
-            margin: 0 auto;
-            font-size: large;
-            border: 1px solid black;
+
+        body{
+            font-family: 'Fredoka', sans-serif;
+            font-size: 20px;
         }
-  
-       
-  
-        td {
-        
-            border: 1px solid black;
-        }
-  
-        th,
-        td {
-            font-weight: bold;
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-  
-        td {
-            font-weight: lighter;
+        table, th, td{
+            border: 1px black solid;
         }
 
-        .home{
+        th{
+           padding: 15px;
+        }
+
+        td{
+            padding: 30px;
+        }
+
+        .container{
             position: relative;
-            top: 300px;
-            left:0;
+            display: flex;
+            justify-content: center;
+            top: 100px
+        }
+
+        .newuser{
+            position: relative;
+            top: 0;
+        }
+
+        a{
+            text-decoration: none;
+            color: blue;
         }
     </style>
-    <title>Document</title>
 </head>
 <body>
-    <a class="home" href="index.html">Add new user</a>
+<a class="newuser" href="index.php">add new user</a>
+<div class=container>
+
+    <table class="table">
+        
+        <thead>
+            
+            <tr>
+                
+                <th>profile</th>
+                
+                <th>Name</th>
+
+                <th>username</th>
+                
+                <th>phone number</th>
+                
+                <th>delete</th>
+                
+                <th>edit</th>
+                
+                <th>Download resume</th>
+                
+            </tr>
+            
+        </thead>
+        
+        <tbody> 
+            
+            <?php
+
+if ($result->num_rows > 0) {
+    
+    while ($row = $result->fetch_assoc()) {
+        
+        ?>
+
+<tr> 
+<?php
+
+    $resume = $row["file"];
+
+?>
+    
+        <td><img style="border-radius:50%; width: 100px" src="profile/<?php echo $row['profile']; ?>" alt=""></td>
+        
+        <td><?php echo $row['first_name']; ?></td>
+        
+        <td><?php echo $row['username']; ?></td>
+
+        <td><?php echo $row['phone_number']; ?></td>
+
+        <td><a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+
+        <td><a class="btn btn-primary" href="update.php?id=<?php echo $row['id']; ?>">Edit</a></td>
+
+        <td><a class="btn btn-success" href="profile/<?php echo $row['file'] ?>" download>Download</td>
+        
+</tr>                       
+        
+<?php }
+
+}
+
+?>                
+
+</tbody>
+
+</table>
+</div>
+
+
 </body>
 </html>
