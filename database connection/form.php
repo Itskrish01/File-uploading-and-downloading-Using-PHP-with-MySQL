@@ -7,6 +7,8 @@
     $target_dir = "media/";
     $profile_target_dir = "profile/";
 
+    // $sqlerr = mysqli_error($con);
+  
     // returning filename from path
     $target_file = $target_dir.basename($_FILES["file"]["name"]);
     $profile_target_file = $profile_target_dir.basename($_FILES["ProfilePic"]["name"]);
@@ -18,7 +20,7 @@
 
     // Checking if file is valid or not
     if($filetype != "jpg" && $filetype != "jpeg" && $filetype != "png" && $filetype != "pdf"){
-      echo "Sorry, But only JPEG, PDF, PNG and JPG are allowed to be uploaded! <br>";
+      echo "Only JPEG, PDF, PNG and JPG are allowed to be uploaded! <br>";
       $ableToUpload = 0;
     }
 
@@ -90,7 +92,8 @@
         }
             else{
               echo "failed to add the details into your database!<br>";
-              die(mysqli_error($con));
+                $err = mysqli_error($con);
+              header("Location: index.php?error=$err");
             }
           }
           else{
