@@ -1,4 +1,3 @@
-
 <?php
  
 ?>
@@ -25,7 +24,7 @@
             font-family: 'Fredoka', sans-serif;
             background-image: url(https://i.pinimg.com/originals/4a/94/26/4a94268541d7a0ed95a8be5138e8a288.jpg);
             background-repeat: no-repeat;
-            background-size: 130%;
+            background-size: 110%;
             font-weight: bold;
         }
 
@@ -33,10 +32,11 @@
             border-radius: 10px;
             background: white;
             position: relative;
-            top: 100px;
+            top: 90px;
             width: 800px;
-            height: 600px;
+            height: 660px;
             box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            padding-bottom: 40px;
         }
 
         form {
@@ -72,27 +72,69 @@
         }
 
         a {
-            position: relative;
-            top: 250px;
-            left: 600px;
+            position: absolute;
+            top: -200px;
+            left: -200px;
         }
 
         .button {
-            padding: 10px;
+            padding: 90px;
             font-weight: 600;
             font-size: 14px;
             color: #fff;
         }
 
-        .btn{
+
+
+        .btn {
+            outline: none;
             position: relative;
-            top: 20px;
+            top: 50px;
             left: 100px;
             width: 500px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         }
-        .err{
+
+        .err {
             color: #ff3b30;
+        }
+
+
+        .labels label {
+            position: absolute;
+            transition: .3s;
+            color: #878787;
+            font-weight: lighter;
+            pointer-events: none;
+        }
+
+        .labels input:focus~label,
+        .labels input:valid~label {
+            font-size: 13px;
+            transform: translateY(-23px);
+            color: black;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            body{
+                background: url(https://images.pexels.com/photos/355209/pexels-photo-355209.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+
+            .btn{
+                left: 70px;
+                width: 300px;
+            }
+
+            .lastname{
+                width: 240px;
+            }
+
+
+            
         }
     </style>
 </head>
@@ -100,6 +142,7 @@
 <body>
     <div class="container">
         <p class="err pb-2 pt-3 ps-4"><?php 
+
         if(isset($_GET['error'])){
             $err = $_GET['error'];
             echo "Username already exists!";
@@ -111,72 +154,65 @@
              echo "Wrong file type! Only JPEG, PDF, PNG and JPG are allowed to be uploaded!";
          }
 
-         if(isset($_GET['fileerror1'])){
-            $fileerror1 = $_GET['fileerror'];
-            echo "Wrong file type! Only JPEG, PDF, PNG and JPG are allowed to be uploaded!";
-        }
+         
         
         ?></p>
         <h3 class="ps-4 pt-2">Enter your details here</h3>
         <form action="data.php" method="POST" enctype="multipart/form-data">
 
             <div class="form-row">
-                <div class="inline" style="display: flex;">
-                    <div class="form-group col-md-6 inline" style="padding-right: 20px;">
-                        <label for="inputEmail4">Name</label>
-                        <input type="text" name="name" class="form-control border" id="inputEmail4" required>
+                <div class="labels">
+                    <div class="inline" style="display: flex;">
+                        <div class="form-group col-md-6 inline" style="padding-right: 20px;">
+
+                            <input type="text" name="name" class="form-control border" id="inputEmail4" placeholder=" "
+                                required>
+                            <label style="top: 30px;">First name</label>
+                        </div>
+                        <div class="form-group col-md-6 inline">
+
+                            <input type="text" name="lastname" class="lastname form-control border" id="inputPassword4" required>
+                            <label style="top: 30px;" for="inputPassword4">Last name</label>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6 inline">
-                        <label for="inputPassword4">username</label>
+                    <div class="form-group">
+
                         <input type="text" name="username" class="form-control border" id="inputPassword4" required>
+                        <label style="top: 90px;" for="inputPassword4">username</label>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword4">Phone number</label>
-                    <input type="text" name="number" class="form-control border phone" id="exampleInputEmail1"
-                        class="number-only" maxlength="10" pattern="[7-9]{1}[0-9]{9}" required>
+                    <div class="form-group">
+
+                        <input type="text" name="number" class="form-control border phone" id="exampleInputEmail1"
+                            class="number-only" maxlength="10" pattern="[7-9]{1}[0-9]{9}" required>
+                        <label style="top: 155px;" for="inputPassword4">Phone number</label>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">resume</label>
-                <input type="file" name="" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                <input type="file" name="resume" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                    required>
             </div>
             <div class="form-group">
                 <label for="inputAddress2">profile</label>
-                <input type="file" name="profile" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="file" name="profile" class="form-control" id="inputAddress2"
+                    placeholder="Apartment, studio, or floor">
             </div>
 
 
             <button type="submit" name="submit" class="btn btn-primary mt-2 mb-2">S U B M I T</button>
 
-            <!-- <tr>
-                    <td>Name: </td>
-                    <td><input type="text" name="name" required></td>
-                </tr>
-
-
-
-                <tr>
-                    <td>Phone number:</td>
-                    <td><input type="text" name="number" class="number-only" maxlength="10" pattern="[7-9]{1}[0-9]{9}"
-                            required></td>
-                </tr>
-
-                <tr>
-                    <td>Upload Resume: </td>
-                    <td><input type="file" name="resume" required></td>
-                </tr>
-
-                <tr>
-                    <td>Upload profile: </td>
-                    <td><input type="file" name="profile" required></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" name="submit" class="btn btn-primary"></td>
-                </tr> -->
 
 
             <a href="showdata.php">show my data</a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
         </form>
     </div>
 
